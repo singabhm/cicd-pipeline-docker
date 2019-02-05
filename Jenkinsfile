@@ -15,7 +15,7 @@ stage('Build Docker image') {
 
 	steps{
 	script {
-		app = docker.build("DockerHub>/node-app")
+		app = docker.build("singabhm/node-app")
 		app.inside {
 			sh 'echo $(curl localhost:8080)'
 			}
