@@ -4,9 +4,8 @@ pipeline {
 stage('Build') {
 	steps {
 		echo "Running Build automation"
-		sh './gradlev build --no-deamon'
-		archiveArtifacts artifacts: 'dist/trainSchedule.zip'
-		}
+		sh './gradlew build --no-deamon'
+				}
 	}
 stage('Build Docker image') {
 	when {
@@ -15,7 +14,7 @@ stage('Build Docker image') {
 
 	steps{
 	script {
-		app = docker.build("DockerHub>/node-app")
+		app = docker.build("singabhm/node-app")
 		app.inside {
 			sh 'echo $(curl localhost:8080)'
 			}
