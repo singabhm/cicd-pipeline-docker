@@ -9,9 +9,7 @@ stage('Build') {
 		}
 	}
 stage('Build Docker image') {
-	when {
-  		branch 'master'
-		}
+	
 
 	steps{
 	script {
@@ -24,9 +22,7 @@ stage('Build Docker image') {
 	}
 stage('push docker image')
 	{
-	when {
-		branch 'master'
-		}
+	
 	steps {
 		script {
 			docker.withRegistry('https://registry.hub.docker.com','DockerHub')
